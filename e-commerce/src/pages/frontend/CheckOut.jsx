@@ -1,10 +1,7 @@
 import React from 'react'
 
-export const CheckOut = () => {
+export default function CheckOut() {
     return (
-        <div>CheckOut
-
-            Ram
-        </div>
+        <div>CheckOut</div>
     )
 }

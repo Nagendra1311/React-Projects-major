@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.button {
+  height: 100% !important;
+}
+
+.form-control:disabled,
+.form-control:read-only {
+  background-color: #fff;
+  opacity: 1;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const OrderView = () => {
+export default function OrderView() {
     return (
         <div>OrderView</div>
     )

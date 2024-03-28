@@ -33,7 +33,7 @@ export const Header = () => {
                         <div className="collapse navbar-collapse bg-white" id="navbarCollapse">
                             <div className="navbar-nav mx-auto">
                                 <Link href="index.html" className="nav-item nav-link active">Home</Link>
-                                <Link href="shop.html" className="nav-item nav-link">Shop</Link>
+                                <Link to='/admin/category' className="nav-item nav-link">Category</Link>
                                 <Link href="shop-detail.html" className="nav-item nav-link">Shop Detail</Link>
                                 <div className="nav-item dropdown">
                                     <Link to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</Link>

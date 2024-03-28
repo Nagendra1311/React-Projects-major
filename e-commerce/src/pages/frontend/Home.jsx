@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const Home = () => {
+
+export default function Home() {
     return (
         <>
 
@@ -1093,3 +1094,4 @@ export const Home = () => {
         </>
     )
 }
+

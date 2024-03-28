@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const AddOrEditProducts = () => {
+export default function AddOrEditProducts() {
     return (
         <div>AddOrEditProducts</div>
     )

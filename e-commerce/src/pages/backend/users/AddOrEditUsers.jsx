@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const AddOrEditUsers = () => {
+export default function AddOrEditUsers() {
     return (
         <div>AddOrEditUsers</div>
     )
