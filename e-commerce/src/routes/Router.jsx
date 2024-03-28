@@ -55,7 +55,7 @@ export default function Router() {
                 <Route path='product'>
                     <Route path='' element={<Products />} />
                     <Route path='create' element={<AddOrEditProducts />} />
-                    <Route path='edit' element={<AddOrEditProducts />} />
+                    <Route path='edit/:id' element={<AddOrEditProducts />} />
                 </Route>
 
                 {/* users */}

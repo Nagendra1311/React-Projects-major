@@ -3,8 +3,7 @@ import Sidebar from '../../../layouts/Sidebar'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addCategoryStart, updateCategoryStart } from '../../../redux/actions/category.action'
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from '../../../firebase-config'
+import { useFormData } from '../../../hooks/useFormData'
 
 let initialState = {
     name: "",
@@ -17,19 +16,12 @@ export default function AddOrEditCategory() {
 
     const dispatch = useDispatch();
     const categories = useSelector(state => state.category.categories)
-    const [formData, setFormData] = useState(initialState);
     const navigate = useNavigate();
-    const [imageLoading, setImageLoading] = useState(false)
+
+
+    const [formData, setFormData, imageLoading, inputChange, uploadFiles] = useFormData(initialState, "category");
 
     let { name, status, image } = formData;
-
-    const inputChange = (event) => {
-        setFormData((prevState) => ({
-            ...prevState,
-            [event.target.name]: event.target.value
-
-        }))
-    }
 
     const submit = (event) => {
         event.preventDefault();
@@ -63,49 +55,6 @@ export default function AddOrEditCategory() {
         }
     }, [id])
 
-
-    const uploadFiles = (event) => {
-        // console.log(event.target.files[0]);
-        const storageRef = ref(storage, 'category/' + event.target.files[0].name);
-
-        const uploadTask = uploadBytesResumable(storageRef, event.target.files[0]);
-
-        // Register three observers:
-        // 1. 'state_changed' observer, called any time the state changes
-        // 2. Error observer, called on failure
-        // 3. Completion observer, called on successful completion
-        uploadTask.on('state_changed',
-            (snapshot) => {
-                // Observe state change events such as progress, pause, and resume
-                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                console.log('Upload is ' + progress + '% done');
-                setImageLoading(true);
-                switch (snapshot.state) {
-                    case 'paused':
-                        console.log('Upload is paused');
-                        break;
-                    case 'running':
-                        console.log('Upload is running');
-                        break;
-                }
-            },
-            (error) => {
-                // Handle unsuccessful uploads
-            },
-            () => {
-                // Handle successful uploads on complete
-                // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    setImageLoading(false)
-                    setFormData((prevValue) => ({
-                        ...prevValue,
-                        image: downloadURL
-                    }))
-                });
-            }
-        );
-    }
     return (
         <>
             <div className="container-fluid page-header py-5">
@@ -173,7 +122,7 @@ export default function AddOrEditCategory() {
                                     </div>
                                     <div className="row">
                                         <div className="col-sm-6 d-grid">
-                                            <button type='submit' className="btn btn-primary text-white" disabled={imageLoading}>Submit</button>
+                                            <button type='submit' className="btn btn-primary text-white" disabled={imageLoading}>{id ? "Update" : "Submit"}</button>
                                         </div>
                                         <div className="col-sm-6 d-grid">
                                             <button type='reset' className="btn btn-warning text-white">Reset</button>

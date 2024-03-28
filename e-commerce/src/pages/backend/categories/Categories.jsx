@@ -11,6 +11,7 @@ export default function Categories() {
 
     const categories = useSelector(state => state.category.categories);
 
+
     useEffect(() => {
         dispatch(getCategoryStart())
     }, [categories.length])
@@ -60,7 +61,7 @@ export default function Categories() {
                                                         height: "50px"
                                                     }} /></td>
                                                     <td>{category.name}</td>
-                                                    <td>{category.status === 1 ? "Active" : "Inactive"}</td>
+                                                    <td>{category.status === "1" ? 'Active' : 'Inactive'}</td>
                                                     <td>
                                                         <Link to={`/admin/category/edit/${category.id}`} className='btn btn-warning btn-sm me-2'>Edit</Link>
                                                         <button className='btn btn-danger btn-sm me-2' onClick={() => deleteCategory(category)}>Delete</button>
