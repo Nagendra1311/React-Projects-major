@@ -1,6 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects'
 import { ADD_USER_START, DELETE_USER_START, GET_USER_START, UPDATE_USER_START } from '../constants/user.constant'
-import { addUserError, deleteUserError, getUserError, getUserStart, getUserSuccess, updateUserError } from '../actions/use.action'
+import { addUserError, deleteUserError, getUserError, getUserStart, getUserSuccess, updateUserError } from '../actions/user.action'
 import { addUserToFirebase, deleteUserToFirebase, getUserFromFirebase, updateUserToFirebase } from '../services/user.service'
 
 
@@ -47,7 +47,7 @@ function* updateUser({ payload }) {
     }
 }
 
-export default function* User() {
+export default function* user() {
     yield takeLatest(ADD_USER_START, addUser);
     yield takeLatest(GET_USER_START, getUser);
     yield takeLatest(DELETE_USER_START, deleteUser);

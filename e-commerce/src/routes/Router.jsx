@@ -14,6 +14,7 @@ import AddOrEditUsers from '../pages/backend/users/AddOrEditUsers'
 import Orders from '../pages/backend/orders/Orders'
 import OrderView from '../pages/backend/orders/OrderView'
 import AddOrEditProducts from '../pages/backend/products/AddOrEditProducts'
+import Login from '../pages/frontend/Login'
 
 export default function Router() {
     return (
@@ -29,6 +30,9 @@ export default function Router() {
 
             {/* checkout page */}
             <Route path='/checkout' element={<Checkout />} />
+
+            {/* login page */}
+            <Route path='/login' element={<Login />} />
 
             {/* admin routes */}
             <Route path='/admin'>
@@ -62,7 +66,7 @@ export default function Router() {
                 <Route path='user'>
                     <Route path='' element={<User />} />
                     <Route path='create' element={<AddOrEditUsers />} />
-                    <Route path='edit' element={<AddOrEditUsers />} />
+                    <Route path='edit/:id' element={<AddOrEditUsers />} />
                 </Route>
 
             </Route>

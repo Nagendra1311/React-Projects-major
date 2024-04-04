@@ -23,6 +23,7 @@ export default function AddOrEditProducts() {
     const dispatch = useDispatch();
     const products = useSelector(state => state.product.products)
     const navigate = useNavigate();
+    const categories = useSelector(state => state.category.categories);
 
     const [formData, setFormData, imageLoading, inputChange, uploadFiles] = useFormData(initialState, "product");
 
@@ -94,14 +95,26 @@ export default function AddOrEditProducts() {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor='category' className="form-label"> Product Category</label>
-                                        <input
+                                        <select
                                             type="text"
                                             className="form-control"
                                             placeholder='Product Category'
                                             id='category'
                                             name="category"
                                             value={category}
-                                            onChange={inputChange} />
+                                            onChange={inputChange} >
+                                            <option value="" hidden>Select Category</option>
+                                            {
+                                                categories.length > 0 && categories.map((category, index) => {
+                                                    if (category.status === '1') {
+
+                                                        return <option key={index}>{category.name}</option>
+                                                    }
+                                                })
+
+                                            }
+                                        </select>
+
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor='slug' className="form-label"> Product Slug</label>

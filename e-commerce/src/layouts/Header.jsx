@@ -23,7 +23,7 @@ export const Header = () => {
                 </div>
                 <div className="container px-0">
                     <nav className="navbar navbar-light bg-white navbar-expand-xl">
-                        <Link href="index.html" className="navbar-brand">
+                        <Link to="/" className="navbar-brand">
                             <h1 className="text-primary display-6">Fruitables</h1>
                         </Link>
                         <button className="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
@@ -32,19 +32,17 @@ export const Header = () => {
                         </button>
                         <div className="collapse navbar-collapse bg-white" id="navbarCollapse">
                             <div className="navbar-nav mx-auto">
-                                <Link href="index.html" className="nav-item nav-link active">Home</Link>
-                                <Link to='/admin/category' className="nav-item nav-link">Category</Link>
-                                <Link href="shop-detail.html" className="nav-item nav-link">Shop Detail</Link>
+                                <Link to="/login" className="nav-item nav-link active">Login</Link>
                                 <div className="nav-item dropdown">
                                     <Link to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</Link>
                                     <div className="dropdown-menu m-0 bg-secondary rounded-0">
-                                        <Link href="cart.html" className="dropdown-item">Cart</Link>
-                                        <Link href="chackout.html" className="dropdown-item">Chackout</Link>
-                                        <Link href="testimonial.html" className="dropdown-item">Testimonial</Link>
-                                        <Link href="404.html" className="dropdown-item">404 Page</Link>
+                                        <Link to="cart.html" className="dropdown-item">Cart</Link>
+                                        <Link to="chackout.html" className="dropdown-item">Chackout</Link>
+                                        <Link to="testimonial.html" className="dropdown-item">Testimonial</Link>
+                                        <Link to="404.html" className="dropdown-item">404 Page</Link>
                                     </div>
                                 </div>
-                                <Link href="contact.html" className="nav-item nav-link">Contact</Link>
+                                <Link to="contact.html" className="nav-item nav-link">Contact</Link>
                             </div>
                             <div className="d-flex m-3 me-0">
                                 <button className="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"

@@ -15,6 +15,10 @@ export default function Sidebar() {
                     <Link to="/admin/product"> Product</Link>
 
                 </li>
+                <li className="list-group-item">
+                    <Link to="/admin/user"> User</Link>
+
+                </li>
             </ul>
         </>
     )

@@ -4,9 +4,9 @@ import { ADD_USER_ERROR, ADD_USER_START, ADD_USER_SUCCESS, DELETE_USER_ERROR, DE
 export const getUserStart = () => ({
     type: GET_USER_START,
 })
-export const getUserSuccess = (categories) => ({
+export const getUserSuccess = (users) => ({
     type: GET_USER_SUCCESS,
-    payload: categories
+    payload: users
 })
 
 export const getUserError = (error) => ({
